@@ -1,24 +1,8 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-
-const RadioInput = ({ label, value, checked, setter }) => {
-  return (
-    <>
-      <input
-        type="radio"
-        className="btn-check"
-        id={`option${value}`}
-        name="identifier"
-        value="21"
-        onChange={() => setter(value)}
-        checked={checked === value}
-      />
-      <label className="btn btn-outline-success" htmlFor={`option${value}`}>
-        {label}
-      </label>
-    </>
-  );
-};
+import Preload from "../../../components/Preload";
+import RadioInput from "../../../components/RadioInput";
+import StatusCheck from "../../../components/StatusCheck";
 
 function Observasi() {
   const [identifier, setIdentifier] = useState(53);
@@ -53,62 +37,74 @@ function Observasi() {
                 Hasil Pengamatan mahasiswa
               </div>
               <div className="card-body">
-                <RadioInput
-                  label="B.Indonesia"
-                  value="21"
-                  checked={identifier}
-                  setter={setIdentifier}
-                />
-                <RadioInput
-                  label="B.Inggris"
-                  value="22"
-                  checked={identifier}
-                  setter={setIdentifier}
-                />
-                <RadioInput
-                  label="Matematika"
-                  value="51"
-                  checked={identifier}
-                  setter={setIdentifier}
-                />
-                <RadioInput
-                  label="Fisika"
-                  value="53"
-                  checked={identifier}
-                  setter={setIdentifier}
-                />
-                <RadioInput
-                  label="Biologi"
-                  value="53"
-                  checked={identifier}
-                  setter={setIdentifier}
-                />
-                <RadioInput
-                  label="Ekonomi"
-                  value="65"
-                  checked={identifier}
-                  setter={setIdentifier}
-                />
-                <RadioInput
-                  label="Geografi"
-                  value="70"
-                  checked={identifier}
-                  setter={setIdentifier}
-                />
-                <RadioInput
-                  label="Sejarah"
-                  value="71"
-                  checked={identifier}
-                  setter={setIdentifier}
-                />
-                <RadioInput
-                  label="Penjas"
-                  value="91"
-                  checked={identifier}
-                  setter={setIdentifier}
-                />
+                <div className="form-check form-check-inline">
+                  <RadioInput
+                    name="jurusan"
+                    label="B.Indonesia"
+                    value="21"
+                    checked={identifier}
+                    setter={setIdentifier}
+                  />
+                  <RadioInput
+                    name="jurusan"
+                    label="B.Inggris"
+                    value="22"
+                    checked={identifier}
+                    setter={setIdentifier}
+                  />
+                  <RadioInput
+                    name="jurusan"
+                    label="Matematika"
+                    value="51"
+                    checked={identifier}
+                    setter={setIdentifier}
+                  />
+                  <RadioInput
+                    name="jurusan"
+                    label="Fisika"
+                    value="53"
+                    checked={identifier}
+                    setter={setIdentifier}
+                  />
+                  <RadioInput
+                    name="jurusan"
+                    label="Biologi"
+                    value="54"
+                    checked={identifier}
+                    setter={setIdentifier}
+                  />
+                  <RadioInput
+                    name="jurusan"
+                    label="Ekonomi"
+                    value="65"
+                    checked={identifier}
+                    setter={setIdentifier}
+                  />
+                  <RadioInput
+                    name="jurusan"
+                    label="Geografi"
+                    value="70"
+                    checked={identifier}
+                    setter={setIdentifier}
+                  />
+                  <RadioInput
+                    name="jurusan"
+                    label="Sejarah"
+                    value="71"
+                    checked={identifier}
+                    setter={setIdentifier}
+                  />
+                  <RadioInput
+                    name="jurusan"
+                    label="Penjas"
+                    value="91"
+                    checked={identifier}
+                    setter={setIdentifier}
+                  />
+                </div>
+                <hr />
                 {loading ? (
-                  <div className="alert alert-info">Loading . . .</div>
+                  <Preload />
                 ) : (
                   <table className="table table-sm">
                     <thead>
@@ -131,25 +127,17 @@ function Observasi() {
                               <td>{index + 1}</td>
                               <td>{observation.student_name}</td>
                               <td>
-                                {observation.kultur_status ? (
-                                  <div className="text-success">OK</div>
-                                ) : (
-                                  <div className="text-danger">Belum</div>
-                                )}
+                                <StatusCheck
+                                  status={observation.kultur_status}
+                                />
                               </td>
                               <td>
-                                {observation.sotk_status ? (
-                                  <div className="text-success">OK</div>
-                                ) : (
-                                  <div className="text-danger">Belum</div>
-                                )}
+                                <StatusCheck status={observation.sotk_status} />
                               </td>
                               <td>
-                                {observation.kurikuler_status ? (
-                                  <div className="text-success">OK</div>
-                                ) : (
-                                  <div className="text-danger">Belum</div>
-                                )}
+                                <StatusCheck
+                                  status={observation.kurikuler_status}
+                                />
                               </td>
                             </tr>
                           );
