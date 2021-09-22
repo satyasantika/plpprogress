@@ -6,7 +6,7 @@ const RadioInput = ({ label, value, checked, setter }) => {
     <>
       <input
         type="radio"
-        className="btn-check m-1"
+        className="btn-check"
         id={`option${value}`}
         name="identifier"
         value="21"
@@ -113,10 +113,11 @@ function Observasi() {
                   <table className="table table-sm">
                     <thead>
                       <tr>
+                        <th></th>
                         <th>Nama</th>
-                        <th>Pengamatan Kultur</th>
-                        <th>Pengamatan SOTK</th>
-                        <th>Pengamatan Kurikuler</th>
+                        <th>Kultur</th>
+                        <th>SOTK</th>
+                        <th>Kurikuler</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -127,6 +128,7 @@ function Observasi() {
                         .map((observation, index) => {
                           return (
                             <tr key={index}>
+                              <td>{index + 1}</td>
                               <td>{observation.student_name}</td>
                               <td>
                                 {observation.kultur_status ? (
