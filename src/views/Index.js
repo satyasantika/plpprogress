@@ -16,9 +16,16 @@ function Home(props) {
                 <hr />
                 <Link
                   to="/plp1/mahasiswa/observasi"
-                  className="btn btn-sm btn-primary"
+                  className="btn btn-sm btn-primary m-1"
                 >
                   Observasi Mahasiswa
+                </Link>
+                <br />
+                <Link
+                  to="/plp1/dosen/penilaian"
+                  className="btn btn-sm btn-primary m-1"
+                >
+                  Penilaian DPL
                 </Link>
               </div>
             </div>
