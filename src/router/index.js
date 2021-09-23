@@ -1,14 +1,15 @@
-import React from 'react';
+import React from "react";
 import { Switch, Route } from "react-router-dom";
-import Observasi from '../views/plp1/mahasiswa/Observasi';
+import Home from "../views/Index";
+import Observasi from "../views/plp1/mahasiswa/Observasi";
 
 function Router() {
   return (
     <Switch>
-      {/* <Route path='/'>
-
-      </Route> */}
-      <Route path='/plp1/mahasiswa/observasi'>
+      <Route exact path="/">
+        <Home />
+      </Route>
+      <Route path="/plp1/mahasiswa/observasi">
         <Observasi />
       </Route>
     </Switch>

@@ -3,6 +3,7 @@ import axios from "axios";
 import Preload from "../../../components/Preload";
 import RadioInput from "../../../components/RadioInput";
 import StatusCheck from "../../../components/StatusCheck";
+import { NavLink } from "react-router-dom";
 
 function Observasi() {
   const [identifier, setIdentifier] = useState(53);
@@ -35,6 +36,9 @@ function Observasi() {
             <div className="card">
               <div className="card-header bg-primary text-white">
                 Hasil Pengamatan mahasiswa
+                <NavLink to="/" className="btn btn-sm btn-light float-end">
+                  HOME
+                </NavLink>
               </div>
               <div className="card-body">
                 <div className="form-check form-check-inline">
