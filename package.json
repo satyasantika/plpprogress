@@ -2,6 +2,7 @@
   "name": "plpprogress",
   "version": "0.1.0",
   "private": true,
+  "homepage": "http://plp.fkip.unsil.ac.id/progress",
   "dependencies": {
     "@popperjs/core": "^2.10.1",
     "@testing-library/jest-dom": "^5.11.4",

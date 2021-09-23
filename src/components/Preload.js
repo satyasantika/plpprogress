@@ -3,8 +3,8 @@ import React from "react";
 function Preload(props) {
   return (
     <div>
-      <div class="text-center text-info">
-        <div class="spinner-border text-info" role="status"></div>
+      <div className="text-center text-info">
+        <div className="spinner-border text-info" role="status"></div>
         Mengambil data...
       </div>
     </div>

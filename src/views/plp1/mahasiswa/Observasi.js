@@ -12,7 +12,7 @@ function Observasi() {
     setLoading(true);
     try {
       let response = await axios.get(
-        `http://localhost/plp-data/api/progress/observations/2021/1/${identifier}`
+        `${process.env.REACT_APP_API_URL}/progress/observations/2021/1/${identifier}`
       );
       setObservations(response.data.data);
       setLoading(false);
