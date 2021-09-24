@@ -22,10 +22,16 @@ function Home(props) {
                 </Link>
                 <br />
                 <Link
+                  to="/plp1/mahasiswa/dinilai"
+                  className="btn btn-sm btn-primary m-1"
+                >
+                  Penilaian By Mahasiswa
+                </Link>
+                <Link
                   to="/plp1/dosen/penilaian"
                   className="btn btn-sm btn-primary m-1"
                 >
-                  Penilaian DPL
+                  Penilaian By DPL
                 </Link>
               </div>
             </div>

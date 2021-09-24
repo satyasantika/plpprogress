@@ -5,7 +5,7 @@ import RadioInput from "../../../components/RadioInput";
 import StatusCheck from "../../../components/StatusCheck";
 import { NavLink } from "react-router-dom";
 
-function Penilaian() {
+function Dinilai() {
   const [identifier, setIdentifier] = useState(21);
   const [assessments, setAssessments] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -13,7 +13,7 @@ function Penilaian() {
     setLoading(true);
     try {
       let response = await axios.get(
-        `${process.env.REACT_APP_API_URL}/progress/assessments/2021/1/lecture/${identifier}`
+        `${process.env.REACT_APP_API_URL}/progress/assessments/2021/1/student/${identifier}`
       );
       setAssessments(response.data.data);
       setLoading(false);
@@ -35,7 +35,7 @@ function Penilaian() {
           <div className="col-auto">
             <div className="card">
               <div className="card-header bg-primary text-white">
-                Rekap Penilaian PLP 1 by DPL
+                Rekap Status Penilaian PLP 1 By Mahasiswa
                 <NavLink to="/" className="btn btn-sm btn-light float-end">
                   HOME
                 </NavLink>
@@ -150,4 +150,4 @@ function Penilaian() {
   );
 }
 
-export default Penilaian;
+export default Dinilai;
