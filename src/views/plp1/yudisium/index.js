@@ -1,7 +1,29 @@
-import React from "react";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import Preload from "../../../components/Preload";
 
 function Yudisium1(props) {
+  const [assessments, setAssessments] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const getAssessments = async () => {
+    setLoading(true);
+    try {
+      let response = await axios.get(
+        `${process.env.REACT_APP_API_URL}/progress/assessments/2021/1/subjects`
+      );
+      setAssessments(response.data.data);
+      setLoading(false);
+    } catch (e) {
+      setLoading(true);
+      console.log(e.message);
+    }
+  };
+
+  useEffect(() => {
+    getAssessments();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
   return (
     <div className="p-4">
       <div className="container-fluid">
@@ -69,6 +91,41 @@ function Yudisium1(props) {
                 >
                   Penjas
                 </Link>
+                <hr />
+                {loading ? (
+                  <Preload />
+                ) : (
+                  <table className="table table-sm">
+                    <thead>
+                      <tr>
+                        <th>Mapel</th>
+                        <th className="text-end">A</th>
+                        <th className="text-end">B</th>
+                        <th className="text-end">C</th>
+                        <th className="text-end">D</th>
+                        <th className="text-end">E</th>
+                        <th className="text-end">Total</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {assessments
+                        .sort((a, b) => (a.subjectId > b.subjectId ? 1 : -1))
+                        .map((assessment, index) => {
+                          return (
+                            <tr key={index}>
+                              <td>{assessment.mapel}</td>
+                              <td className="text-end">{assessment.hurufA}</td>
+                              <td className="text-end">{assessment.hurufB}</td>
+                              <td className="text-end">{assessment.hurufC}</td>
+                              <td className="text-end">{assessment.hurufD}</td>
+                              <td className="text-end">{assessment.hurufE}</td>
+                              <td className="text-end">{assessment.total}</td>
+                            </tr>
+                          );
+                        })}
+                    </tbody>
+                  </table>
+                )}
               </div>
             </div>
           </div>
