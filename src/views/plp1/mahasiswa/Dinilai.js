@@ -115,8 +115,8 @@ function Dinilai() {
                       <tr>
                         <th></th>
                         <th>Nama</th>
-                        <th>Laporan</th>
-                        <th>Lisan</th>
+                        <th className="text-end">Nilai N2</th>
+                        <th className="text-end">Nilai N8</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -128,11 +128,18 @@ function Dinilai() {
                           return (
                             <tr key={index}>
                               <td>{index + 1}</td>
-                              <td>{assessment.student_name}</td>
                               <td>
+                                {assessment.student_name}
+                                <br />
+                                <div className="badge bg-dark">
+                                  <div className="badge bg-primary">DPL</div>{" "}
+                                  {assessment.lecture_name}
+                                </div>
+                              </td>
+                              <td className="text-end">
                                 <StatusCheck status={assessment.n2_status} />
                               </td>
-                              <td>
+                              <td className="text-end">
                                 <StatusCheck status={assessment.n8_status} />
                               </td>
                             </tr>
