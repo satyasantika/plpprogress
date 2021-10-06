@@ -4,7 +4,7 @@ import Preload from "../../../components/Preload";
 import { NavLink } from "react-router-dom";
 import StatusPercent from "../../../components/StatusPercent";
 
-function Penilaian1() {
+function PenilaianGuru2() {
   const [assessments, setAssessments] = useState([]);
   const [loading, setLoading] = useState(true);
   const getAssessments = async () => {
@@ -93,4 +93,4 @@ function Penilaian1() {
   );
 }
 
-export default Penilaian1;
+export default PenilaianGuru2;

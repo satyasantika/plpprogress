@@ -12,6 +12,7 @@ function YudisiumMapel1(props) {
     try {
       let response = await axios.get(
         `${process.env.REACT_APP_API_URL}/progress/yudisium/2021/1/${mapelId}`
+        // `https://plp.fkip.unsil.ac.id/api/progress/yudisium/2021/1/${mapelId}`
       );
       setAssessments(response.data.data);
       setLoading(false);

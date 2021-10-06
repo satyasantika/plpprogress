@@ -5,7 +5,7 @@ import RadioInput from "../../../components/RadioInput";
 import StatusCheck from "../../../components/StatusCheck";
 import { NavLink } from "react-router-dom";
 
-function Dinilai1() {
+function Dinilai2() {
   const [identifier, setIdentifier] = useState(21);
   const [assessments, setAssessments] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -157,4 +157,4 @@ function Dinilai1() {
   );
 }
 
-export default Dinilai1;
+export default Dinilai2;

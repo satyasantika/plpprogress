@@ -1,17 +1,18 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import { Link, useParams } from "react-router-dom";
 import Preload from "../../../components/Preload";
-import { NavLink } from "react-router-dom";
-import StatusPercent from "../../../components/StatusPercent";
 
-function Penilaian1() {
+function YudisiumMapel2(props) {
+  let { mapelId } = useParams();
   const [assessments, setAssessments] = useState([]);
   const [loading, setLoading] = useState(true);
   const getAssessments = async () => {
     setLoading(true);
     try {
       let response = await axios.get(
-        `${process.env.REACT_APP_API_URL}/progress/assessments/2021/1/lectures`
+        `${process.env.REACT_APP_API_URL}/progress/yudisium/2021/1/${mapelId}`
+        // `https://plp.fkip.unsil.ac.id/api/progress/yudisium/2021/1/${mapelId}`
       );
       setAssessments(response.data.data);
       setLoading(false);
@@ -24,7 +25,7 @@ function Penilaian1() {
   useEffect(() => {
     getAssessments();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [mapelId]);
 
   return (
     <div className="p-4">
@@ -33,10 +34,13 @@ function Penilaian1() {
           <div className="col-auto">
             <div className="card">
               <div className="card-header bg-primary text-white">
-                Rekap Penilaian PLP 1 by DPL
-                <NavLink to="/" className="btn btn-sm btn-light float-end">
+                Rekap Status Penilaian PLP 1 By Mahasiswa
+                <Link
+                  to="/plp1/yudisium"
+                  className="btn btn-sm btn-light float-end"
+                >
                   HOME
-                </NavLink>
+                </Link>
               </div>
               <div className="card-body">
                 {loading ? (
@@ -47,37 +51,46 @@ function Penilaian1() {
                       <tr>
                         <th></th>
                         <th>Nama</th>
-                        <th>Mapel</th>
-                        <th className="text-end">Nilai N2</th>
-                        <th className="text-end">Nilai N8</th>
+                        <th className="text-end">N2</th>
+                        <th className="text-end">N8</th>
+                        <th className="text-end">Nilai PLP1</th>
+                        <th>Huruf</th>
                       </tr>
                     </thead>
                     <tbody>
                       {assessments
                         .sort((a, b) =>
-                          a.lecture_name > b.lecture_name ? 1 : -1
+                          a.student_name > b.student_name ? 1 : -1
                         )
-                        .sort((a, b) => (a.subject_id > b.subject_id ? 1 : -1))
                         .map((assessment, index) => {
                           return (
                             <tr
                               key={index}
                               className={
-                                assessment.n2_status === 100 &&
-                                assessment.n8_status === 100
-                                  ? ""
-                                  : "bg-warning"
+                                assessment.skor <= 76
+                                  ? "bg-danger text-white"
+                                  : assessment.skor < 86
+                                  ? "bg-secondary text-white"
+                                  : ""
                               }
                             >
                               <td>{index + 1}</td>
-                              <td>{assessment.lecture_name}</td>
-                              <td>{assessment.lecture_subject}</td>
-                              <td className="text-end">
-                                <StatusPercent status={assessment.n2_status} />
+                              <td>
+                                {assessment.student_name}
+                                <br />
+                                <div className="badge bg-dark">
+                                  <div className="badge bg-primary">DPL</div>{" "}
+                                  {assessment.lecture_name}
+                                </div>
                               </td>
                               <td className="text-end">
-                                <StatusPercent status={assessment.n8_status} />
+                                {assessment.n2_grade}
                               </td>
+                              <td className="text-end">
+                                {assessment.n8_grade}
+                              </td>
+                              <td className="text-end">{assessment.skor}</td>
+                              <td>{assessment.huruf}</td>
                             </tr>
                           );
                         })}
@@ -93,4 +106,4 @@ function Penilaian1() {
   );
 }
 
-export default Penilaian1;
+export default YudisiumMapel2;
