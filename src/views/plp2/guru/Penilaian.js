@@ -11,7 +11,7 @@ function PenilaianGuru2() {
     setLoading(true);
     try {
       let response = await axios.get(
-        `${process.env.REACT_APP_API_URL}/progress/assessments/2021/1/lectures`
+        `${process.env.REACT_APP_API_URL}/progress/assessments/2021/2/teachers`
       );
       setAssessments(response.data.data);
       setLoading(false);
@@ -48,14 +48,18 @@ function PenilaianGuru2() {
                         <th></th>
                         <th>Nama</th>
                         <th>Mapel</th>
-                        <th className="text-end">Nilai N2</th>
-                        <th className="text-end">Nilai N8</th>
+                        <th className="text-end">N1</th>
+                        <th className="text-end">N3</th>
+                        <th className="text-end">N4</th>
+                        <th className="text-end">N5</th>
+                        <th className="text-end">N6</th>
+                        <th className="text-end">N7</th>
                       </tr>
                     </thead>
                     <tbody>
                       {assessments
                         .sort((a, b) =>
-                          a.lecture_name > b.lecture_name ? 1 : -1
+                          a.teacher_name > b.teacher_name ? 1 : -1
                         )
                         .sort((a, b) => (a.subject_id > b.subject_id ? 1 : -1))
                         .map((assessment, index) => {
@@ -63,20 +67,36 @@ function PenilaianGuru2() {
                             <tr
                               key={index}
                               className={
-                                assessment.n2_status === 100 &&
-                                assessment.n8_status === 100
+                                assessment.n1_status === 100 &&
+                                assessment.n3_status === 100 &&
+                                assessment.n4_status === 100 &&
+                                assessment.n5_status === 100 &&
+                                assessment.n6_status === 100 &&
+                                assessment.n7_status === 100
                                   ? ""
                                   : "bg-warning"
                               }
                             >
                               <td>{index + 1}</td>
-                              <td>{assessment.lecture_name}</td>
-                              <td>{assessment.lecture_subject}</td>
+                              <td>{assessment.teacher_name}</td>
+                              <td>{assessment.teacher_subject}</td>
                               <td className="text-end">
-                                <StatusPercent status={assessment.n2_status} />
+                                <StatusPercent status={assessment.n1_status} />
                               </td>
                               <td className="text-end">
-                                <StatusPercent status={assessment.n8_status} />
+                                <StatusPercent status={assessment.n3_status} />
+                              </td>
+                              <td className="text-end">
+                                <StatusPercent status={assessment.n4_status} />
+                              </td>
+                              <td className="text-end">
+                                <StatusPercent status={assessment.n5_status} />
+                              </td>
+                              <td className="text-end">
+                                <StatusPercent status={assessment.n6_status} />
+                              </td>
+                              <td className="text-end">
+                                <StatusPercent status={assessment.n7_status} />
                               </td>
                             </tr>
                           );

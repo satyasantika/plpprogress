@@ -48,9 +48,9 @@ function PenilaianDosen2() {
                         <th></th>
                         <th>Nama</th>
                         <th>Mapel</th>
-                        <th className="text-end">Nilai N2</th>
-                        <th className="text-end">Nilai N6</th>
-                        <th className="text-end">Nilai N7</th>
+                        <th className="text-end">N2.2</th>
+                        <th className="text-end">N6</th>
+                        <th className="text-end">N7</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -65,7 +65,8 @@ function PenilaianDosen2() {
                               key={index}
                               className={
                                 assessment.n2_status === 100 &&
-                                assessment.n8_status === 100
+                                assessment.n6_status === 100 &&
+                                assessment.n7_status === 100
                                   ? ""
                                   : "bg-warning"
                               }
