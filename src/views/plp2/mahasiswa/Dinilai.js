@@ -13,7 +13,7 @@ function Dinilai2() {
     setLoading(true);
     try {
       let response = await axios.get(
-        `${process.env.REACT_APP_API_URL}/progress/assessments/2021/1/student/${identifier}`
+        `${process.env.REACT_APP_API_URL}/progress/assessments/2021/2/student/${identifier}`
       );
       setAssessments(response.data.data);
       setLoading(false);
@@ -35,7 +35,7 @@ function Dinilai2() {
           <div className="col-auto">
             <div className="card">
               <div className="card-header bg-primary text-white">
-                Rekap Status Penilaian PLP 1 By Mahasiswa
+                Rekap Status Penilaian PLP 2 By Mahasiswa
                 <NavLink to="/" className="btn btn-sm btn-light float-end">
                   HOME
                 </NavLink>
@@ -113,10 +113,21 @@ function Dinilai2() {
                   <table className="table table-sm">
                     <thead>
                       <tr>
-                        <th></th>
-                        <th>Nama</th>
-                        <th className="text-end">Nilai N2</th>
-                        <th className="text-end">Nilai N8</th>
+                        <th rowSpan="2"></th>
+                        <th rowSpan="2">Nama</th>
+                        <th colSpan="3">DPL</th>
+                        <th colSpan="6">Guru Pamong</th>
+                      </tr>
+                      <tr>
+                        <th className="text-end">N2.2</th>
+                        <th className="text-end">N6</th>
+                        <th className="text-end">N7</th>
+                        <th className="text-end">N1</th>
+                        <th className="text-end">N3</th>
+                        <th className="text-end">N4</th>
+                        <th className="text-end">N5</th>
+                        <th className="text-end">N6</th>
+                        <th className="text-end">N7</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -135,12 +146,37 @@ function Dinilai2() {
                                   <div className="badge bg-primary">DPL</div>{" "}
                                   {assessment.lecture_name}
                                 </div>
+                                <div className="badge bg-dark">
+                                  <div className="badge bg-success">GP</div>{" "}
+                                  {assessment.teacher_name}
+                                </div>
                               </td>
                               <td className="text-end">
                                 <StatusCheck status={assessment.n2_status} />
                               </td>
                               <td className="text-end">
-                                <StatusCheck status={assessment.n8_status} />
+                                <StatusCheck status={assessment.n6_status} />
+                              </td>
+                              <td className="text-end">
+                                <StatusCheck status={assessment.n7_status} />
+                              </td>
+                              <td className="text-end">
+                                <StatusCheck status={assessment.n1_status} />
+                              </td>
+                              <td className="text-end">
+                                <StatusCheck status={assessment.n3_status} />
+                              </td>
+                              <td className="text-end">
+                                <StatusCheck status={assessment.n4_status} />
+                              </td>
+                              <td className="text-end">
+                                <StatusCheck status={assessment.n5_status} />
+                              </td>
+                              <td className="text-end">
+                                <StatusCheck status={assessment.n6_status} />
+                              </td>
+                              <td className="text-end">
+                                <StatusCheck status={assessment.n7_status} />
                               </td>
                             </tr>
                           );

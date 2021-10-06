@@ -33,7 +33,7 @@ function PenilaianDosen2() {
           <div className="col-auto">
             <div className="card">
               <div className="card-header bg-primary text-white">
-                Rekap Penilaian PLP 1 by DPL
+                Rekap Penilaian PLP 2 by DPL
                 <NavLink to="/" className="btn btn-sm btn-light float-end">
                   HOME
                 </NavLink>
