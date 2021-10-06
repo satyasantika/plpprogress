@@ -11,7 +11,7 @@ function PenilaianDosen2() {
     setLoading(true);
     try {
       let response = await axios.get(
-        `${process.env.REACT_APP_API_URL}/progress/assessments/2021/1/lectures`
+        `${process.env.REACT_APP_API_URL}/progress/assessments/2021/2/lectures`
       );
       setAssessments(response.data.data);
       setLoading(false);
@@ -49,7 +49,8 @@ function PenilaianDosen2() {
                         <th>Nama</th>
                         <th>Mapel</th>
                         <th className="text-end">Nilai N2</th>
-                        <th className="text-end">Nilai N8</th>
+                        <th className="text-end">Nilai N6</th>
+                        <th className="text-end">Nilai N7</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -76,7 +77,10 @@ function PenilaianDosen2() {
                                 <StatusPercent status={assessment.n2_status} />
                               </td>
                               <td className="text-end">
-                                <StatusPercent status={assessment.n8_status} />
+                                <StatusPercent status={assessment.n6_status} />
+                              </td>
+                              <td className="text-end">
+                                <StatusPercent status={assessment.n7_status} />
                               </td>
                             </tr>
                           );

@@ -33,6 +33,27 @@ function Home(props) {
                 >
                   Penilaian By DPL
                 </Link>
+                <hr />
+                <h1>PLP 2</h1>
+                <hr />
+                <Link
+                  to="/plp2/mahasiswa/dinilai"
+                  className="btn btn-sm btn-primary m-1"
+                >
+                  Penilaian By Mahasiswa
+                </Link>
+                <Link
+                  to="/plp2/dosen/penilaian"
+                  className="btn btn-sm btn-primary m-1"
+                >
+                  Penilaian By DPL
+                </Link>
+                <Link
+                  to="/plp2/guru/penilaian"
+                  className="btn btn-sm btn-primary m-1"
+                >
+                  Penilaian By GP
+                </Link>
               </div>
             </div>
           </div>
