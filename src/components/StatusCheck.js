@@ -1,14 +1,14 @@
 import React from "react";
 
-function StatusCheck({ status }) {
+function StatusCheck({ status, form }) {
   return (
-    <div>
+    <>
       {status ? (
-        <div className="text-success">OK</div>
+        <div className="btn btn-sm btn-outline-success">{form} &#10004;</div>
       ) : (
-        <div className="text-danger">Belum</div>
+        <div className="btn btn-sm btn-outline-danger">{form} &#10060;</div>
       )}
-    </div>
+    </>
   );
 }
 

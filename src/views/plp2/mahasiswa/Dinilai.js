@@ -113,21 +113,10 @@ function Dinilai2() {
                   <table className="table table-sm">
                     <thead>
                       <tr>
-                        <th rowSpan="2"></th>
-                        <th rowSpan="2">Nama</th>
-                        <th colSpan="3">DPL</th>
-                        <th colSpan="6">Guru Pamong</th>
-                      </tr>
-                      <tr>
-                        <th className="text-end">N2.2</th>
-                        <th className="text-end">N6</th>
-                        <th className="text-end">N7</th>
-                        <th className="text-end">N1</th>
-                        <th className="text-end">N3</th>
-                        <th className="text-end">N4</th>
-                        <th className="text-end">N5</th>
-                        <th className="text-end">N6</th>
-                        <th className="text-end">N7</th>
+                        <th></th>
+                        <th>Nama</th>
+                        <th>DPL</th>
+                        <th>Guru Pamong</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -139,44 +128,54 @@ function Dinilai2() {
                           return (
                             <tr key={index}>
                               <td>{index + 1}</td>
+                              <td>{assessment.student_name}</td>
                               <td>
-                                {assessment.student_name}
-                                <br />
                                 <div className="badge bg-dark">
                                   <div className="badge bg-primary">DPL</div>{" "}
                                   {assessment.lecture_name}
                                 </div>
+                                <StatusCheck
+                                  status={assessment.n2_status}
+                                  form="N2.2"
+                                />
+                                <StatusCheck
+                                  status={assessment.n6_status}
+                                  form="N6"
+                                />
+                                <StatusCheck
+                                  status={assessment.n7_status}
+                                  form="N7"
+                                />
+                              </td>
+                              <td>
                                 <div className="badge bg-dark">
                                   <div className="badge bg-success">GP</div>{" "}
                                   {assessment.teacher_name}
                                 </div>
-                              </td>
-                              <td className="text-end">
-                                <StatusCheck status={assessment.n2_status} />
-                              </td>
-                              <td className="text-end">
-                                <StatusCheck status={assessment.n6_status} />
-                              </td>
-                              <td className="text-end">
-                                <StatusCheck status={assessment.n7_status} />
-                              </td>
-                              <td className="text-end">
-                                <StatusCheck status={assessment.n1_status} />
-                              </td>
-                              <td className="text-end">
-                                <StatusCheck status={assessment.n3_status} />
-                              </td>
-                              <td className="text-end">
-                                <StatusCheck status={assessment.n4_status} />
-                              </td>
-                              <td className="text-end">
-                                <StatusCheck status={assessment.n5_status} />
-                              </td>
-                              <td className="text-end">
-                                <StatusCheck status={assessment.n6_status} />
-                              </td>
-                              <td className="text-end">
-                                <StatusCheck status={assessment.n7_status} />
+                                <StatusCheck
+                                  status={assessment.n1_status}
+                                  form="N1"
+                                />
+                                <StatusCheck
+                                  status={assessment.n3_status}
+                                  form="N3"
+                                />
+                                <StatusCheck
+                                  status={assessment.n4_status}
+                                  form="N4"
+                                />
+                                <StatusCheck
+                                  status={assessment.n5_status}
+                                  form="N5"
+                                />
+                                <StatusCheck
+                                  status={assessment.n6_status}
+                                  form="N6"
+                                />
+                                <StatusCheck
+                                  status={assessment.n7_status}
+                                  form="N7"
+                                />
                               </td>
                             </tr>
                           );
