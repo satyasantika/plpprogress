@@ -33,7 +33,7 @@ function PenilaianGuru2() {
           <div className="col-auto">
             <div className="card">
               <div className="card-header bg-primary text-white">
-                Rekap Penilaian PLP 2 by DPL
+                Rekap Penilaian PLP 2 by Guru Pamong
                 <NavLink to="/" className="btn btn-sm btn-light float-end">
                   HOME
                 </NavLink>
@@ -59,7 +59,7 @@ function PenilaianGuru2() {
                     <tbody>
                       {assessments
                         .sort((a, b) =>
-                          a.teacher_name > b.teacher_name ? 1 : -1
+                          a.teacher_name > b.teacher_name ? -1 : 1
                         )
                         .sort((a, b) => (a.subject_id > b.subject_id ? 1 : -1))
                         .map((assessment, index) => {

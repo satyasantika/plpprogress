@@ -10,7 +10,7 @@ function Yudisium2(props) {
     setLoading(true);
     try {
       let response = await axios.get(
-        `${process.env.REACT_APP_API_URL}/progress/assessments/2021/1/subjects`
+        `${process.env.REACT_APP_API_URL}/progress/assessments/2021/2/subjects`
       );
       setAssessments(response.data.data);
       setLoading(false);
@@ -31,62 +31,62 @@ function Yudisium2(props) {
           <div className="col-auto">
             <div className="card">
               <div className="card-header bg-primary text-white">
-                Yudisium PLP1 tahun 2021
+                Yudisium PLP2 tahun 2021
               </div>
               <div className="card-body">
                 <div className="alert alert-info">
                   Silakan pilih sesuai jurusan
                 </div>
                 <Link
-                  to="/plp1/yudisium/21"
+                  to="/plp2/yudisium/21"
                   className="btn btn-sm btn-primary m-1"
                 >
                   B. Indonesia
                 </Link>
                 <Link
-                  to="/plp1/yudisium/22"
+                  to="/plp2/yudisium/22"
                   className="btn btn-sm btn-primary m-1"
                 >
                   B. Inggris
                 </Link>
                 <Link
-                  to="/plp1/yudisium/51"
+                  to="/plp2/yudisium/51"
                   className="btn btn-sm btn-primary m-1"
                 >
                   Matematika
                 </Link>
                 <Link
-                  to="/plp1/yudisium/53"
+                  to="/plp2/yudisium/53"
                   className="btn btn-sm btn-primary m-1"
                 >
                   Fisika
                 </Link>
                 <Link
-                  to="/plp1/yudisium/54"
+                  to="/plp2/yudisium/54"
                   className="btn btn-sm btn-primary m-1"
                 >
                   Biologi
                 </Link>
                 <Link
-                  to="/plp1/yudisium/65"
+                  to="/plp2/yudisium/65"
                   className="btn btn-sm btn-primary m-1"
                 >
                   Ekonomi
                 </Link>
                 <Link
-                  to="/plp1/yudisium/70"
+                  to="/plp2/yudisium/70"
                   className="btn btn-sm btn-primary m-1"
                 >
                   Geografi
                 </Link>
                 <Link
-                  to="/plp1/yudisium/71"
+                  to="/plp2/yudisium/71"
                   className="btn btn-sm btn-primary m-1"
                 >
                   Sejarah
                 </Link>
                 <Link
-                  to="/plp1/yudisium/91"
+                  to="/plp2/yudisium/91"
                   className="btn btn-sm btn-primary m-1"
                 >
                   Penjas

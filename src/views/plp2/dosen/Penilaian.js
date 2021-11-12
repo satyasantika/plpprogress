@@ -56,7 +56,7 @@ function PenilaianDosen2() {
                     <tbody>
                       {assessments
                         .sort((a, b) =>
-                          a.lecture_name > b.lecture_name ? 1 : -1
+                          a.lecture_name > b.lecture_name ? -1 : 1
                         )
                         .sort((a, b) => (a.subject_id > b.subject_id ? 1 : -1))
                         .map((assessment, index) => {
